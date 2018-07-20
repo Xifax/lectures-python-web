@@ -40,29 +40,29 @@ Note:
 
 ---
 
-### SimpleHTTPServer
+### Http server
 
+```
+import http.server
+import socketserver
+
+PORT = 8000
+
+Handler = http.server.SimpleHTTPRequestHandler
+httpd = socketserver.TCPServer(("", PORT), Handler)
+
+print("serving at port", PORT)
+httpd.serve_forever()
+```
 @[1-2]
 @[4]
 @[6-7]
 @[9-10]
-```
-import SimpleHTTPServer
-import SocketServer
-
-PORT = 8000
-
-Handler = SimpleHTTPServer.SimpleHTTPRequestHandler
-httpd = SocketServer.TCPServer(("", PORT), Handler)
-
-print "serving at port", PORT
-httpd.serve_forever()
-```
 
 
 или
 
-> python -m SimpleHTTPServer 8000
+> python -m http.server 8000
 
 ---
 

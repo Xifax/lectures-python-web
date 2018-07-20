@@ -41,7 +41,10 @@ Note:
 
 ### SimpleHTTPServer
 
-
+@[1-2]
+@[4]
+@[6-7]
+@[9-10]
 ```
 import SimpleHTTPServer
 import SocketServer
@@ -54,10 +57,6 @@ httpd = SocketServer.TCPServer(("", PORT), Handler)
 print "serving at port", PORT
 httpd.serve_forever()
 ```
-@[1-2]
-@[3]
-@[5-6]
-@[9-10]
 
 
 или

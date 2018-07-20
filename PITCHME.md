@@ -2,6 +2,8 @@
 
 Веб приложения на питоне и с чем их едят
 
+> Предварительный набросок
+
 ---
 
 ## Предварительное содержание
@@ -28,14 +30,13 @@ Note:
 ### Что такое веб приложение
 
 - Компоненты веба
-- Какая-нибудь симпатичная схема
 - Встроенные модули питона
 
 ---
 
-### Симпатичная (наверное) схема
+### Симпатичная (условно) схема
 
-![Simple Diagramm](img/example.png)
+![Simple Diagramm](img/scheme.png)
 
 ---
 
@@ -62,3 +63,67 @@ httpd.serve_forever()
 или
 
 > python -m SimpleHTTPServer 8000
+
+---
+
+## Flask
+
+
+@ul
+
+- Установка и конфигурация
+- Шаблон проект и базовое устройство
+- Готовые модули
+- Blueprints
+
+@ulend
+
+---
+
+## Django
+
+@ul
+
+- В чём отличие
+- Консольная утилита
+- Установка и модули
+- База данных и миграции
+
+@ulend
+
+---
+
+## Deployment
+
+@ul
+
+- Gunicorn, wsgi
+- Сервер nginx, reverse proxy
+- Supervisor, systemd
+
+@ulend
+
+---
+
+## Заключение
+
+@ul
+
+- Frontend + backend
+- Типы приложений
+- Микросервисы
+
+@ulend
+
+---
+
+## Задача
+
+...
+
+---
+
+## Ссылки
+
+![Данная презентация](https://gitpitch.com/xifax/lecture-python-web/master)
+![Репозиторий презентации](https://github.com/xifax/lecture-python-web/master)

@@ -35,7 +35,7 @@ Note:
 
 ### Симпатичная (наверное) схема
 
-![Simple Diagramm](img/example.svg)
+![Simple Diagramm](img/example.png)
 
 ---
 
@@ -54,7 +54,10 @@ httpd = SocketServer.TCPServer(("", PORT), Handler)
 print "serving at port", PORT
 httpd.serve_forever()
 ```
-@[1-2, 3, 5-6, 9-10]
+@[1-2]
+@[3]
+@[5-6]
+@[9-10]
 
 
 или

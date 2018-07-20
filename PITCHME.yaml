@@ -14,3 +14,5 @@ published : false
 # Plugins
 # charts : true
 # mathjax : TeX-AMS_HTML-full
+
+code-line-numbers : true

@@ -18,6 +18,11 @@
 
 @ulend
 
+Note:
+
+- Заострить внимание на применении и структуре приложений
+- Добавить NOTA BENE после каждой темы
+
 ---
 
 ### Что такое веб приложение
@@ -30,11 +35,12 @@
 
 ### Симпатичная (наверное) схема
 
-![Simple Diagramm](example.png)
+![Simple Diagramm](img/example.svg)
 
 ---
 
 ### SimpleHTTPServer
+
 
 ```
 import SimpleHTTPServer
@@ -43,12 +49,13 @@ import SocketServer
 PORT = 8000
 
 Handler = SimpleHTTPServer.SimpleHTTPRequestHandler
-
 httpd = SocketServer.TCPServer(("", PORT), Handler)
 
 print "serving at port", PORT
 httpd.serve_forever()
 ```
+@[1-2, 3, 5-6, 9-10]
+
 
 или
 

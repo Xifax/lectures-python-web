@@ -1,0 +1,16 @@
+# Layout
+layout : center
+
+# Look-and-Feel
+# logo : assets/images/logo.png
+theme : white
+# theme-override : assets/css/PITCHME.css
+# highlight : ir-black
+
+# Behavior
+transition : none
+published : false
+
+# Plugins
+# charts : true
+# mathjax : TeX-AMS_HTML-full

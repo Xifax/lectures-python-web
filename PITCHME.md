@@ -125,5 +125,8 @@ httpd.serve_forever()
 
 ## Ссылки
 
-![Данная презентация](https://gitpitch.com/xifax/lectures-python-web/master)
-![Репозиторий презентации](https://github.com/xifax/lectures-python-web)
+Данная презентация
+https://gitpitch.com/xifax/lectures-python-web/master
+
+Репозиторий презентации
+https://github.com/xifax/lectures-python-web

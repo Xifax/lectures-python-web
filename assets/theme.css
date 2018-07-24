@@ -1,0 +1,11 @@
+/* Custom font */
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+h1 h2 h3 {
+  font-family: 'Raleway', sans-serif;
+}
+
+/* Disable image borders */
+.reveal section img {
+  border: 0;
+  box-shadow: none;
+}

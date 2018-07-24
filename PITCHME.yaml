@@ -1,11 +1,11 @@
 # Layout
-layout : center
+layout : center-left
 
 # Look-and-Feel
 # logo : assets/images/logo.png
 theme : white
-# theme-override : assets/css/PITCHME.css
-# highlight : ir-black
+theme-override : assets/theme.css
+highlight : github
 
 # Behavior
 transition : none

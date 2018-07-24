@@ -1,5 +1,5 @@
 # Layout
-layout : center-left
+layout : center
 
 # Look-and-Feel
 # logo : assets/images/logo.png
@@ -15,4 +15,4 @@ published : false
 # charts : true
 # mathjax : TeX-AMS_HTML-full
 
-code-line-numbers : true
+code-line-numbers : false

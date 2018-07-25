@@ -126,12 +126,30 @@ Note:
 
 ---
 
+### Простейшие функции веб приложения (pending)
+
+- отображение страниц
+- авторизация
+- отображение данных
+- сохранение данных
+
+Note:
+
+- бесконечно много, рассмотрим основные
+
+---
+
+
 ## Инструментарий
+
+@ul
 
 - Встроенные модули питона
 - Flask
 - Django
 - Прочие (Bottle, Pyramids, Tornado)
+
+@ulend
 
 ---
 
@@ -177,19 +195,6 @@ Note:
 
 ---
 
-### Простейшие функции веб приложения (pending)
-
-- отображение страниц
-- авторизация
-- отображение данных
-- сохранение данных
-
-Note:
-
-- бесконечно много, рассмотрим основные
-
----
-
 ### Flask. Рабочее окружение
 
 ```bash
@@ -200,7 +205,7 @@ pipenv install flask
 pipenv shell
 ```
 
-*Pipenv* -- Священный союз Pipfile, Pip, и Virtualenv.
+*Pipenv* - Священный союз Pipfile, Pip, и Virtualenv.
 
 Note:
 
@@ -218,7 +223,7 @@ Note:
 
 <!-- ### Flask. Шаблон -->
 
----?code=src/flask/2-template.py&lang=py&color=white&title=Flask. Using template
+---?code=src/flask/2-template.py&lang=py&color=white&title=Flask. Using templates
 @[5](Обозначим данные)
 @[9](Выведем данные в шаблон)
 
@@ -235,7 +240,7 @@ Note:
 
 <!-- Flask. Запросы -->
 
----?code=src/flask/3-request.html&lang=html&color=white&title=Flask. Request
+---?code=src/flask/3-request.py&lang=py&color=white&title=Flask. Request
 @[1-2](Задействуем дополнительные модули Flask)
 @[3-4](Для пущего удобства)
 @[6-10](Эмулируем некое подобие сервиса для получения данных)
@@ -250,7 +255,7 @@ Note:
 
 ---
 
-### Flask. Пример отладочного запроса
+### Flask. Пример запроса
 
 > curl -d "name=corydoras&size=medium" -X POST http://localhost:5000/
 
@@ -273,22 +278,21 @@ Note:
 
 ### Flask. Пример структуры проекта
 
-```
+```bash
 .
-├── example.env             << environment variables
-├── run.py                  << flask entry point
-├── client.js               << frontend pipeline entry point
+├── example.env             # переменные окружения
+├── run.py                  # точка входа в приложене
+├── client.js               # точка входа для фронтенда
 └── app
-    ├── __init__.py         << flask configuration
     ├── client
-    │   ├── build           << frontend build artifacts
+    │   ├── build           # артефакты фронтенда
     │   ├── static
     │   └── templates
     └── server
-        ├── config.py       << configuration for different environments
-        ├── main            << main blueprint
-        ├── models.py
-        └── user
+        ├── config.py       # конфигурация приложеня
+        ├── main            # главный модуль
+        ├── models.py       # модели данных
+        └── user            # модуль пользователя
 ```
 
 ---
@@ -297,38 +301,25 @@ Note:
 
 Логический элемент приложения, обособленный согласно определённым факторам.
 
-```
+```bash
 app/
-    errors/                             <-- blueprint package
-        __init__.py                     <-- blueprint creation
-        handlers.py                     <-- error handlers
+    errors/                             <-- модуль ошибок
+        __init__.py                     <-- инициализация модуля
+        handlers.py                     <-- обработка ошибок
     templates/
-        errors/                         <-- error templates
+        errors/                         <-- шаблоны ошибок
             404.html
             500.html
-    __init__.py                         <-- blueprint registration
+    __init__.py                         <-- регистрируем blueprint
 ```
 
----
+<!-- Пример Blueprint'а -->
 
-### Flask. Blueprints. Авторизация
+---?code=src/4-blueprint.py&lang=py&color=white&title=Errors Blueprint
+@[1-6](Инициализация модуля ошибок)
+@[10-17](Пример обработчика ошибки 404)
+@[20-25](Подключение модуля к основному приложеню)
 
-```
-app/
-    auth/                               <-- blueprint package
-        __init__.py                     <-- blueprint creation
-        email.py                        <-- authentication emails
-        forms.py                        <-- authentication forms
-        routes.py                       <-- authentication routes
-    templates/
-        auth/                           <-- blueprint templates
-            login.html
-            register.html
-            reset_password.html
-        home/
-            landing.html
-    __init__.py                         <-- blueprint registration
-```
 
 ---
 
@@ -336,11 +327,15 @@ app/
 
 Для расширения функциональности Flask доступно большое количество модулей:
 
+@ul
+
 - Flask-Login: сессия и авторизация
 - Flask-Admin: административный интерфейс
 - Flask-Restful: создание REST API
 - Flask-SQLAlchemy: работа с базой данных
 - Flask-Migrate: создание миграций
+
+@ulend
 
 ---
 
@@ -353,7 +348,7 @@ app/
 - Консольная утилита
 - Структура приложения
 - База данных и миграции
-- REST
+- REST API
 
 @ulend
 

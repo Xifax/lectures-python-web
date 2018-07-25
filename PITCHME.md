@@ -439,8 +439,11 @@ Note:
 
 ### Gunicorn
 
-Pre-fork модель с множество worker'ов.
+*Green Unicorn*. Pre-fork модель с множество worker'ов.
 
+
+> pipenv install gunicorn
+> gunicorn --workers 4 project:app
 
 TODO: пример конфигурации
 

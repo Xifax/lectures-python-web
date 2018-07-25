@@ -15,4 +15,4 @@ published : false
 # charts : true
 # mathjax : TeX-AMS_HTML-full
 
-code-line-numbers : false
+code-line-numbers : true

@@ -38,7 +38,7 @@ def fish_api():
             return jsonify(fish)
 
         except KeyError:
-            return jsonify(error='Необходимые параметры: name, size')
+            return jsonify(error='Параметры: name, size')
 
 if __name__ == '__main__':
     app.run()

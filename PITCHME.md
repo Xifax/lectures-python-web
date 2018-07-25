@@ -240,7 +240,7 @@ Note:
 
 <!-- Flask. Запросы -->
 
----?code=src/flask/3-request.py&lang=python&color=white&title=Flask. Request
+---?code=src/flask/3-request.py&lang=py&color=white&title=Flask. Request
 @[1-2](Задействуем дополнительные модули Flask)
 @[3-4](Для пущего удобства)
 @[6-10](Эмулируем некое подобие сервиса для получения данных)
@@ -281,7 +281,7 @@ Note:
 ```bash
 .
 ├── example.env             # переменные окружения
-├── run.py                  # точка входа в приложене
+├── run.py                  # точка входа в приложение
 ├── client.js               # точка входа для фронтенда
 └── app
     ├── client
@@ -289,7 +289,7 @@ Note:
     │   ├── static
     │   └── templates       # шаблоны
     └── server
-        ├── config.py       # конфигурация приложеня
+        ├── config.py       # конфигурация приложения
         ├── main            # главный модуль
         ├── models.py       # модели данных
         └── user            # модуль пользователя
@@ -303,19 +303,19 @@ Note:
 
 ```bash
 app/
-    errors/                             # модуль ошибок
-        __init__.py                     # инициализация модуля
-        handlers.py                     # обработка ошибок
+    errors/                 # модуль ошибок
+        __init__.py         # инициализация модуля
+        handlers.py         # обработка ошибок
     templates/
-        errors/                         # шаблоны ошибок
+        errors/             # шаблоны ошибок
             404.html
             500.html
-    __init__.py                         # регистрируем blueprint
+    __init__.py             # регистрируем blueprint
 ```
 
 <!-- Пример Blueprint'а -->
 
----?code=src/4-blueprint.py&lang=python&color=white&title=Errors Blueprint
+---?code=src/flask/4-blueprint.py&lang=py&color=white&title=Flask. Errors Blueprint
 @[1-6](Инициализация модуля ошибок)
 @[10-17](Пример обработчика ошибки 404)
 @[20-25](Подключение модуля к основному приложеню)

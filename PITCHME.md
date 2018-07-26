@@ -221,6 +221,50 @@ Note:
 @[9-11](Добавляем редирект с корневого url)
 @[13-14]
 
+---
+
+### Flask. Переменные окружения
+
+```bash
+set FLASK_APP=1-simple.py
+```
+
+Flask + python-dotenv или Pipenv позволяют задать определённые переменные
+рабочего или серверного окружения.
+
+> .env
+
+```ini
+FLASK_APP=1-simple.py
+FLASK_ENV=development
+FLASK_RUN_PORT=8000
+VERY_SECRET_KEY=qwerty
+```
+
+> flask run
+
+---
+
+### Flask. Read-Eval-Print-Loop
+
+> flask shell
+
+```python
+>>> app.name
+'1-simple'
+
+>>> app.view_functions
+{'static': <bound method _PackageBoundObject.send_static_file of <Flask '1-simple'>>,
+ 'hello': <function hello at 0x000001FF97680598>,
+ 'home': <function home at 0x000001FF97680730>}
+
+ >>> app.view_functions['hello']('Man')
+'Hello Man!'
+```
+@[1-2](Наше приложение)
+@[4-7](Маршруты/методы)
+@[9-10](Пытаемся вызвать метод hello)
+
 <!-- ### Flask. Шаблон -->
 
 ---?code=src/flask/2-template.py&lang=py&color=white&title=Flask. Using templates
@@ -311,8 +355,9 @@ Note:
 Note:
 
 - Pipenv, .env и переменные окружения
-- упомянуть про cli и инструментарий
-- упомянуть про client pipeline
+- упомянуть про cli и инструментарий, БД, утилиты
+- упомянуть про client pipeline и что он делает
+- что такое загадочные "артефакты фронтенда"
 
 ---
 

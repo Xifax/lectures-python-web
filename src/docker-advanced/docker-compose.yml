@@ -1,14 +1,20 @@
+# format version
 version: '3'
 
+# docker images
 services:
+  # db:
+  #   image: postgres
   api:
     build: api
     command: python app.py
-    # specify shared volume to enable auto-reload
+    # match Dockerfile to enable auto-reload
     volumes:
       - ./api:/api
     ports:
       - 5000:80
+    # depends_on:
+    #   - db
   client:
     build: client
     command: python app.py

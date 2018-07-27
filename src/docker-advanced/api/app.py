@@ -12,6 +12,8 @@ class Poet(Resource):
             'William Wordsworth',
             'Vladimir Nabokov',
         ]}
+
+# Create routes
 api.add_resource(Poet, '/')
 
 if __name__ == '__main__':

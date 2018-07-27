@@ -469,7 +469,7 @@ https://github.com/humiaozuzu/awesome-flask
 
 ### Django. Вступление
 
-Фреймворк для перфекционистов с дэдлайнами
+<!-- Фреймворк для перфекционистов с дэдлайнами -->
 
 @ul
 
@@ -489,7 +489,7 @@ Note:
 
 ---
 
-### Django. Стрктура
+### Django. Структура
 
 @ul
 
@@ -633,19 +633,25 @@ Note:
 
 ---?code=src/deploy/gunicorn.service&lang=ini&color=white&title=Gunicorn service
 @[1-3](Данный Unit зависит от сетевого сервиса)
-@[5-9](Обозначим наш сервис)
-@[8-9](Где и что будем запускать)
-@[11-12](Запускаем данный сервис при обычной загрузке)
+@[5-12](Обозначим наш сервис)
+@[8-12](Где и что будем запускать)
+@[14-15](Запускаем данный сервис при обычной загрузке)
+
+Note:
+
+Multiline использован исключительно для примера
 
 ---
 
 ### Запуск сервиса
 
+
+
+```bash
 > sudo systemctl start gunicorn.service
 
 > sudo systemctl status gunicorn.service
 
-```bash
 ● gunicorn.service - gunicorn daemon
    Loaded: loaded (/etc/systemd/system/gunicorn.service; enabled; vendor preset: enabled)
    Active: active (running) since Sun 2018-07-08 17:02:43 MSK; 2 weeks 4 days ago
@@ -657,9 +663,10 @@ Note:
            ├─21092 /path/.../venv/bin/python /path/.../gunicorn --workers 4 --bin
            ├─21092 /path/.../venv/bin/python /path/.../gunicorn --workers 4 --bin
            ...
-```
 
 > sudo systemctl enable gunicorn.service
+```
+
 
 ---
 
@@ -735,7 +742,7 @@ Note:
 @[15](Добавим как корневой маршрут)
 @[18](Запустим на 80-м порту с локальным мета-адресом)
 
----?code=src/docker/api/Dockerfile&lang=docker&color=white&title=Dockerfile
+---?code=src/docker/api/Dockerfile&color=white&title=Dockerfile
 @[1](Готовый образ с Python)
 @[3-4](Рабочая директория приложения)
 @[6-7](Установим зависимости через Pipenv)
@@ -798,8 +805,6 @@ TODO: nginx - django api - postgres - SPA cllient?
 ---
 
 ## Практика
-
-...
 
 ---
 

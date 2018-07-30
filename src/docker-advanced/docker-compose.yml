@@ -1,26 +1,57 @@
-# format version
 version: '3'
 
-# docker images
 services:
-  # db:
-  #   image: postgres
+  db:
+    image: "postgres:9.6.5"
+    volumes:
+      - "dbdata:/var/lib/postgresql/data"
+    env_file:
+      - .env
+    networks:
+      - db_nw
+
   api:
     build: api
     command: python app.py
-    # match Dockerfile to enable auto-reload
+    env_file:
+      - .env
     volumes:
-      - ./api:/api
+      - ./api:/app
+    networks:
+      - db_nw
+      - web_nw
+    depends_on:
+      - db
+
+  nginx:
+    image: "nginx:1.13.5"
     ports:
-      - 5000:80
-    # depends_on:
-    #   - db
-  client:
-    build: client
-    command: python app.py
+      - "8000:80"
     volumes:
-      - ./client:/app
-    ports:
-      - 5001:8080
+      - ./nginx:/etc/nginx/conf.d
+    networks:
+      - web_nw
     depends_on:
       - api
+
+  client:
+    build: client
+    # env_file:
+    #   - .env
+    # ports:
+    #   - "8080:8001"
+    volumes:
+      - ./client:/app
+    networks:
+      - web_nw
+    depends_on:
+      - nginx
+
+networks:
+  db_nw:
+    driver: bridge
+  web_nw:
+    driver: bridge
+
+volumes:
+  dbdata:

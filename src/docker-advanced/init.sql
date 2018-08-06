@@ -1,11 +1,11 @@
 create table DRUG_COMPANIES (
 	id INT,
-	company VARCHAR(50),
-	ceo VARCHAR(50),
-	drug VARCHAR(50),
-	slogan VARCHAR(50),
-	email VARCHAR(50),
-	image VARCHAR(50)
+	company VARCHAR(250),
+	ceo VARCHAR(250),
+	drug VARCHAR(500),
+	slogan VARCHAR(250),
+	email VARCHAR(250),
+	image VARCHAR(250)
 );
 insert into DRUG_COMPANIES (id, company, ceo, drug, slogan, email, image) values (1, 'Oberbrunner and Sons', 'Livvyy Wass', 'Isoniazid', 'benchmark leading-edge channels', 'lwass0@twitpic.com', 'https://robohash.org/doloresmaximeexplicabo.png?size=50x50&set=set1');
 insert into DRUG_COMPANIES (id, company, ceo, drug, slogan, email, image) values (2, 'Pollich-Boehm', 'Stella Whichelow', 'morphine sulfate', 'deploy strategic markets', 'swhichelow1@jimdo.com', 'https://robohash.org/aliquamvoluptatibusassumenda.png?size=50x50&set=set1');

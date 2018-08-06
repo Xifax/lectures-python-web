@@ -4,9 +4,7 @@ services:
   db:
     image: "postgres:9.6.5"
     volumes:
-      volumes:
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-      # - "dbdata:/var/lib/postgresql/data"
+      - .:/docker-entrypoint-initdb.d
     env_file:
       - .env
     networks:
@@ -40,8 +38,8 @@ services:
     build: client
     # env_file:
     #   - .env
-    # ports:
-    #   - "8080:8001"
+    ports:
+      - "8080:8001"
     volumes:
       - ./client:/app
     networks:

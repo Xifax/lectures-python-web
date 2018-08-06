@@ -1,31 +1,34 @@
-import datetime
 import os
 
-from flask import Flask, render_template, redirect, url_for
-# from forms import SignupForm
-#
-# from models import Signups
-# from database import db_session
+from flask import Flask, render_template, redirect, url_for, jsonify
+from flask_sqlalchemy import SQLAlchemy
+from flask_marshmallow import Marshmallow
 
-app = Flask(__name__)
-app.secret_key = os.environ['APP_SECRET_KEY']
+# top level globals, for importing in other modules
+db = SQLAlchemy()
+ma = Marshmallow()
 
-# @app.route("/", methods=('GET', 'POST'))
-# def signup():
-#     form = SignupForm()
-#     if form.validate_on_submit():
-#         signup = Signups(name=form.name.data, email=form.email.data, date_signed_up=datetime.datetime.now())
-#         db_session.add(signup)
-#         db_session.commit()
-#         return redirect(url_for('success'))
-#     return render_template('signup.html', form=form)
-@app.route('/')
-def landing():
-    return "Hello there guys!"
+def create_app():
+    """Simple factory pattern to avoid cyclic imports"""
+    app = Flask(__name__)
 
-@app.route("/success")
-def success():
-    return "Thank you for signing up!"
+    # set config
+    app_settings = os.getenv('APP_SETTINGS', 'config.AppConfig')
+    app.config.from_object(app_settings)
+
+    # initialize application components
+    app.secret_key = os.environ['APP_SECRET_KEY']
+
+    db.init_app(app)
+    ma.init_app(app)
+
+    # register blueprints
+    from api.views import api_blueprint
+    app.register_blueprint(api_blueprint)
+
+    return app
+
 
 if __name__ == '__main__':
+    app = create_app()
     app.run(host='0.0.0.0', port=5090, debug=True)

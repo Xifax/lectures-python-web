@@ -32,8 +32,8 @@ def fish_api():
 
     elif request.method == 'POST':
         try:
-            name = request.form.get('name')
-            size = request.form.get('size')
+            name = request.form['name']
+            size = request.form['size']
             FishDB[name] = fish = Fish(name=name, size=size)
             return jsonify(fish)
 

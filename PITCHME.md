@@ -263,6 +263,13 @@ VERY_SECRET_KEY=qwerty
 
 > flask run
 
+Note:
+
+- показать на примере имеющегося .env
+- показать printenv и grep'нуть python переменные
+- запустить через flask run с предварительным export FLASK_APP
+- упомянуть параметр host
+
 ---
 
 ### Flask. Read-Eval-Print-Loop

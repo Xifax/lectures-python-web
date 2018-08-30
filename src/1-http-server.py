@@ -10,7 +10,7 @@ class Handler(SimpleHTTPRequestHandler):
         logging.error(self.headers)
         SimpleHTTPRequestHandler.do_GET(self)
 
-os.chdir(Path('.') / 'src')
+os.chdir(Path('.') / 'flask')
 
 with socketserver.TCPServer(("", 8000), Handler) as httpd:
     httpd.serve_forever()

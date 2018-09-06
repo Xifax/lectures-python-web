@@ -5,6 +5,9 @@ name = "pypi"
 
 [packages]
 flask = "*"
+flask-restful = "*"
+httpie = "*"
+black = "*"
 
 [dev-packages]
 

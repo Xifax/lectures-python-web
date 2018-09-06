@@ -1,0 +1,99 @@
+<!doctype HTML>
+<html>
+  <head>
+    <title>Widget page</title>
+    <style>
+
+    .column {
+      float: left;
+      width: 50%;
+      min-height: 100px;
+    }
+    .column p {
+      margin: 15px;
+    }
+    .pro {
+      background: #9affcc;
+    }
+    .contra {
+      background: #ffe7e7;
+    }
+    .opinion:hover {
+      cursor: pointer;
+      opacity: 0.5;
+    }
+
+    </style>
+  </head>
+  <body>
+    <div id="widget">
+
+      <h1>[[ header ]]</h1>
+
+      <div>
+        <input v-model="opinion" placeholder="Высказаться">
+        <button @click="add('pro')">За</button>
+        <button @click="add('contra')">Против</button>
+      </div>
+
+      <div class="column pro">
+        <p class="opinion" v-for="e in pro" @click="remove(e)">
+        [[ e[2] ]]
+        </p>
+      </div>
+
+      <div class="column contra">
+        <p class="opinion" v-for="e in contra" @click="remove(e)">
+        [[ e[2] ]]
+        </p>
+      </div>
+
+    </div>
+  </body>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+</html>
+
+<script>
+  const API = 'http://localhost:5000'
+  new Vue ({
+    el: '#widget',
+    delimiters: ['[[',']]'],
+    data () {
+      return {
+        header: 'Мнения о JS виджетах',
+        opinions: [],
+        opinion: ''
+      }
+    },
+    mounted () {
+      this.list()
+    },
+    computed: {
+      pro: function () {
+        return this.opinions.filter((o) => { return o[1] === 'pro'})
+      },
+      contra: function() {
+        return this.opinions.filter((o) => { return o[1] === 'contra'})
+      }
+    },
+    methods: {
+      list: function() {
+        axios.get(`${API}/opinions`)
+          .then(response => {
+            // namedtuple does not serialize well: {id, group, text}
+            this.opinions = response.data
+          })
+      },
+      add: function (group) {
+        axios.post(`${API}/opinions`, {group: group, text: this.opinion})
+          .then(response => { this.list() })
+      },
+      remove: function (opinion) {
+        axios.delete(`${API}/opinions/${opinion[0]}`)
+          .then(response => { this.list() })
+      }
+    }
+  })
+</script>

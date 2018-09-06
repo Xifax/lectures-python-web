@@ -37,7 +37,9 @@
       </div>
 
       <div class="column pro">
-        <p class="opinion" v-for="e in pro" @click="remove(e)">
+        <p class="opinion"
+        v-for="e in pro"
+        @click="remove(e)">
         [[ e[2] ]]
         </p>
       </div>
@@ -53,47 +55,5 @@
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+  <script src="/static/widget.js"></script>
 </html>
-
-<script>
-  const API = 'http://localhost:5000'
-  new Vue ({
-    el: '#widget',
-    delimiters: ['[[',']]'],
-    data () {
-      return {
-        header: 'Мнения о JS виджетах',
-        opinions: [],
-        opinion: ''
-      }
-    },
-    mounted () {
-      this.list()
-    },
-    computed: {
-      pro: function () {
-        return this.opinions.filter((o) => { return o[1] === 'pro'})
-      },
-      contra: function() {
-        return this.opinions.filter((o) => { return o[1] === 'contra'})
-      }
-    },
-    methods: {
-      list: function() {
-        axios.get(`${API}/opinions`)
-          .then(response => {
-            // namedtuple does not serialize well: {id, group, text}
-            this.opinions = response.data
-          })
-      },
-      add: function (group) {
-        axios.post(`${API}/opinions`, {group: group, text: this.opinion})
-          .then(response => { this.list() })
-      },
-      remove: function (opinion) {
-        axios.delete(`${API}/opinions/${opinion[0]}`)
-          .then(response => { this.list() })
-      }
-    }
-  })
-</script>

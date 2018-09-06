@@ -1,7 +1,7 @@
 from uuid import uuid4
 from collections import namedtuple
 
-from flask import Flask, request, abort, render_template
+from flask import Flask, request, abort, render_template, send_from_directory
 from flask_restful import Resource, Api, reqparse
 
 
@@ -53,6 +53,11 @@ class Opinion(Resource):
 
 api.add_resource(OpinionList, "/opinions")
 api.add_resource(Opinion, "/opinions/<string:id>")
+
+
+@app.route('/static/<path:path>')
+def js(path):
+    return send_from_directory('static', path)
 
 if __name__ == "__main__":
     app.run()

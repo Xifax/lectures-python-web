@@ -481,7 +481,7 @@ Note:
 @[58](Подключим логику виджета)
 
 
----?code=src/flask/templates/widget.js&lang=js&color=white&title=Flask. Widget. Template
+---?code=src/flask/static/widget.js&lang=js&color=white&title=Flask. Widget. JS
 @[1](Адрес нашего приложения)
 @[2-3](Инициализируем Vue)
 @[26-32](Получаем список всех записей)

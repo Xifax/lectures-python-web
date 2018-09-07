@@ -1,7 +1,8 @@
 from uuid import uuid4
 from collections import namedtuple
 
-from flask import Flask, request, abort, render_template, send_from_directory
+from flask import (Flask, request, abort,
+    render_template, send_from_directory)
 from flask_restful import Resource, Api, reqparse
 
 
@@ -11,17 +12,24 @@ def get_id():
 
 entry = namedtuple("Opinion", ["id", "group", "text"])
 OPINIONS = [
-    entry(id=get_id(), group="pro", text="Виджеты классные"),
-    entry(id=get_id(), group="pro", text="Обновляются асинхронно"),
-    entry(id=get_id(), group="contra", text="Хитрое взаимодействие с сервером"),
+    entry(id=get_id(), group="pro",
+        text="Виджеты классные"),
+    entry(id=get_id(), group="pro",
+        text="Обновляются асинхронно"),
+    entry(id=get_id(), group="contra",
+        text="Хитрое взаимодействие с сервером"),
 ]
 
 app = Flask(__name__)
-api = Api(app, errors={"StopIteration": {"message": "Не нашлось", "status": 404}})
+api = Api(app,
+    errors={ "StopIteration":
+        { "message": "Не нашлось", "status": 404 }})
 
 parser = reqparse.RequestParser()
-parser.add_argument("group", type=str, required=True, help="Мнение: pro et contra")
-parser.add_argument("text", type=str, required=True, help="Надо указать сам текст")
+parser.add_argument("group", type=str, required=True,
+    help="Мнение: pro et contra")
+parser.add_argument("text", type=str, required=True,
+    help="Надо указать сам текст")
 
 
 @app.route("/")
@@ -37,14 +45,18 @@ class OpinionList(Resource):
         args = parser.parse_args()
         if args["group"] not in ["pro", "contra"]:
             return abort(400)
-        opinion = entry(id=get_id(), group=args["group"], text=args["text"])
+        opinion = entry(
+            id=get_id(),
+            group=args["group"],
+            text=args["text"])
         OPINIONS.append(opinion)
         return opinion, 201
 
 
 class Opinion(Resource):
     def get(self, id):
-        return next(filter(lambda e: e.id == id, OPINIONS)), 200
+        return next(filter(
+            lambda e: e.id == id, OPINIONS)), 200
 
     def delete(self, id):
         OPINIONS[:] = [e for e in OPINIONS if e.id != id]

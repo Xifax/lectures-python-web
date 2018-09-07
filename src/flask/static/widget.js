@@ -26,13 +26,14 @@ new Vue ({
     list: function() {
       axios.get(`${API}/opinions`)
         .then(response => {
-          // namedtuple does not serialize well: {id, group, text}
+          // tuple does not serialize well: {id, group, text}
           this.opinions = response.data
         })
     },
     add: function (group) {
-      axios.post(`${API}/opinions`, {group: group, text: this.opinion})
-        .then(response => { this.list() })
+      axios.post(`${API}/opinions`,
+         {group: group, text: this.opinion})
+           .then(response => { this.list() })
     },
     remove: function (opinion) {
       axios.delete(`${API}/opinions/${opinion[0]}`)

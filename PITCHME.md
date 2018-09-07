@@ -6,6 +6,8 @@
 
 > Часть первая
 
+---?image=img/0-green-python-web.jpg
+
 ---
 
 ## Содержание

@@ -472,7 +472,7 @@ Note:
 
 ---?code=src/flask/templates/widget.html&lang=html&color=white&title=Flask. Widget. Template
 @[29-53](Наш виджет, разметка)
-@[34-37](Разметка для добавления записи)
+@[34-36](Разметка для добавления записи)
 @[39-45](Выводим записи в две колонки)
 @[56-57](Воспользуемся Vue и Axios)
 @[58](Подключим логику виджета)
@@ -750,7 +750,7 @@ Note:
 
 TODO: пример конфигурации
 
---- -->
+-->
 
 ### Systemd
 
@@ -926,9 +926,9 @@ Note:
 > docker-compose ps
 
 ```bash
-Name            Command      State           Ports         
+Name            Command      State           Ports
 ----------------------------------------------------------------
-docker_api_1      python app.py   Up      0.0.0.0:5000->80/tcp  
+docker_api_1      python app.py   Up      0.0.0.0:5000->80/tcp
 docker_client_1   python app.py   Up      0.0.0.0:5001->8080/tcp
 ```
 

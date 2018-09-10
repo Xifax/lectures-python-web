@@ -10,7 +10,7 @@ Contains first part.
 
 https://gitpitch.com/xifax/lectures-python-web/second-part
 
-Contains both parts.
+Contains second part.
 
 ---
 

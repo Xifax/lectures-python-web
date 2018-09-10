@@ -3,7 +3,7 @@
 {% block content %}
 <form>
   {{ form.sepulki }}
-  <input type="submit" value="Сепуленье"/>
+  <input type="submit" value="Сепулить"/>
 </form>
 {% endblock %}
 
@@ -39,7 +39,7 @@ function ajax_submit(e) {
         })
 }
 
-form.addEventListener("submit", ajax_submit);
+document.querySelector("form").addEventListener("submit", ajax_submit);
 
 </script>
 {% endblock %}

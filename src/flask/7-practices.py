@@ -38,7 +38,7 @@ def increment_views(func):
             session['views'] = 1
         else:
             session['views'] += 1
-        if(session['views'] > 10):
+        if session['views'] > 10:
             session['views'] = 0
             return redirect('/')
         return func(*args, **kwargs)
@@ -48,7 +48,8 @@ def increment_views(func):
 @app.route('/search')
 @increment_views
 def search_for_chupacabra():
-    return render_template('san-juan.html', views=session.get('views'))
+    return render_template('san-juan.html',
+        views=session.get('views'))
 
 
 

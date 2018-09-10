@@ -8,6 +8,8 @@ flask = "*"
 flask-restful = "*"
 httpie = "*"
 black = "*"
+flask-wtf = "*"
+python-dotenv = "*"
 
 [dev-packages]
 

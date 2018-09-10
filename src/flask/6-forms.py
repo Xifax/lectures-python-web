@@ -1,4 +1,5 @@
-from flask import render_template, Flask, jsonify, request, abort
+from flask import (
+    render_template, Flask, jsonify, request, abort)
 from flask_wtf import FlaskForm, CSRFProtect
 from wtforms import StringField, validators
 
@@ -7,7 +8,8 @@ app.secret_key = 'qwerty'
 csrf = CSRFProtect(app)
 
 class SepulkariiForm(FlaskForm):
-    sepulki = StringField('sepulki',  [validators.Length(min=2, max=50)])
+    sepulki = StringField('sepulki',
+      [validators.Length(min=2, max=50)])
 
 @app.route('/')
 def index():

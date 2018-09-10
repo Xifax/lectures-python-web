@@ -494,10 +494,10 @@ Note:
 
 
 ---?code=src/flask/6-forms.py&lang=py&color=white&title=Flask. Form
-@[2-3](Подключим WTForms)
-@[9-10](Обозначим форму и поле)
-@[12-15](Отобразим данную форму)
-@[17-24](Обрабатываем сабмит формы)
+@[3-4](Подключим WTForms)
+@[10-12](Обозначим форму и поле)
+@[14-17](Отобразим данную форму)
+@[19-26](Обрабатываем сабмит формы)
 
 ---?code=src/flask/templates/layout.html&lang=html&color=white&title=Flask. Form. Layout
 @[10-11](Блок для нашей формы)

@@ -14,5 +14,12 @@ Contains both parts.
 
 ---
 
+Сами слайды и тексты находятся [тут](lectures-python-web/tree/master/PITCHME.md),
+в формате markdown и используют gitpitch (reveal.js и прочие интересные штуки)
+для визуализации.
+
+Примеры кода и медиа-ресурсы пока что не разделены между ветками.
+
 Дополнительная информация содержится в подпапках, в соответствующих readme файлах.
-Задачи домой описаны на слайдах, а также в [данной папке](lectures-python-web/tree/master/homework).
+Задачи на дом описаны на слайдах, а также в [данной папке](lectures-python-web/tree/master/homework).
+Примеры кода находятся в [src](lectures-python-web/tree/master/src).

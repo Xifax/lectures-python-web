@@ -52,7 +52,6 @@ def search_for_chupacabra():
         views=session.get('views'))
 
 
-
 # run this example
 if __name__ == "__main__":
     app.secret_key = 'me-is-very-quite-so-secret'

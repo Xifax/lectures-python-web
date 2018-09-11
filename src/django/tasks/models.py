@@ -27,12 +27,32 @@ class Task(Common):
         return self
 
 
+class Answer(models.Model):
+    GRADES = (
+        (1, 'bad'),
+        (2, 'good'),
+        (3, 'great')
+    )
+    text = models.TextField()
+    grade = models.IntegerField(
+        choices=GRADES,
+        null=True,
+        blank=True)
+
+    student = models.ForeignKey('Student',
+        related_name='answers',
+        on_delete=models.CASCADE)
+    task = models.ForeignKey(Task,
+        related_name='answers',
+        on_delete=models.CASCADE)
+
+
 class Topic(Common):
     pass
 
 
 class Student(Common):
-    helpers = models.ManyToManyField('self')
+    helpers = models.ManyToManyField('self', blank=True)
 
 
 class Group(Common):

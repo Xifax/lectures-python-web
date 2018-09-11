@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from tasks import models
+
+CRUD = [models.Student, models.Task, models.Answer, models.Group]
+admin.site.register(CRUD)

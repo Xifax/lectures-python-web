@@ -9,6 +9,8 @@ django-environ = "*"
 pytest = "*"
 pytest-watch = "*"
 pytest-testmon = "*"
+pytest-django = "*"
+gunicorn = "*"
 
 [dev-packages]
 

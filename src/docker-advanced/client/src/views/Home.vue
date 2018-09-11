@@ -22,70 +22,36 @@
     <div class="section">
       <div class="container">
         <div class="content">
-          <b-field grouped group-multiline>
-            <div class="control">
-              <b-taglist attached>
-                <b-tag type="is-dark">vue</b-tag>
-                <b-tag type="is-success">2.5.2</b-tag>
-              </b-taglist>
+
+          <div class="card" v-for="c in cards">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img v-bind:src="c.image" alt="Placeholder image">
+              </figure>
             </div>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-left">
+                  <figure class="image is-48x48">
+                    <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                  </figure>
+                </div>
+                <div class="media-content">
+                  <p class="title is-4">{{ c.ceo }}</p>
+                  <p class="subtitle is-6">{{ c.email }}</p>
+                </div>
+              </div>
 
-            <div class="control">
-              <b-taglist attached>
-                <b-tag type="is-dark">buefy</b-tag>
-                <b-tag type="is-primary">0.6.1</b-tag>
-              </b-taglist>
-            </div>
+    <div class="content">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+      <a href="#">#css</a> <a href="#">#responsive</a>
+      <br>
+      <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+    </div>
+  </div>
+</div>
 
-            <div class="control">
-              <b-taglist attached>
-                <b-tag type="is-dark">webpack</b-tag>
-                <b-tag type="is-info">3.8.1</b-tag>
-              </b-taglist>
-            </div>
-          </b-field>
-          <h1 class="title">Getting Started</h1>
-          <hr>
-          <h4><b>Create</b> project using <span class="tag">vue-cli</span>: </h4>
-          Clone or download the project, <a href="https://github.com/ndro/vue-webpack-buefy/archive/master.zip">here</a>. Then,
-          <pre>
-            $ cd (folder-project)
-            $ npm install
-          </pre>
-          <h4><b>run</b> project with: (<a href="https://github.com/vuejs-templates/webpack">reference</a>)</h4>
-          <pre>
-            # serve with hot reload at localhost:8080
-            $ npm run dev
-
-            # build for production with minification
-            $ npm run build
-
-            # build for production and view the bundle analyzer report
-            $ npm run build --report
-          </pre>
-          <h4>if you want to run <b>unit-test</b> using: (<a href="https://github.com/vuejs-templates/webpack">reference</a>)</h4> <i>*doesn't implemented yet</i>
-          <pre>
-            # run unit tests
-            $ npm run unit
-
-            # run e2e tests
-            $ npm run e2e
-
-            # run all tests
-            $ npm test
-          </pre>
-          <hr>
-          <h4>For more <b>reference</b>:</h4>
-          <ul>
-            <li><a href="https://vuejs.org/v2/guide/">Vue.js</a></li>
-            <li><a href="https://bulma.io/documentation/overview/start/">Bulma</a></li>
-            <li><a href="https://buefy.github.io/#/documentation/start">Buefy</a></li>
-            <li><a href="https://github.com/vuejs/awesome-vue">Awesome Vue.js</a> (additional reference)</li>
-          </ul>
-
-          <div>
-          {{ info }}
-          </div>
         </div>
       </div>
     </div>
@@ -98,18 +64,18 @@ export default {
   data () {
     return {
       msg: 'Vue.js starter with full-featured Webpack and Buefy',
-      info: null
+      info: null,
+      cards: []
     }
   },
   mounted () {
     this.axios
         .get('https://api.coindesk.com/v1/bpi/currentprice.json')
         .then(response => (this.info = response))
-        /*
+
     this.axios
-        .get('http://api/')
-        .then(response => (this.info = response))
-        */
+        .get('http://localhost:8000')
+        .then(response => (this.cards = response.data))
   }
 }
 </script>

@@ -4,7 +4,7 @@
       <div class="hero-body">
         <div class="container has-text-centered">
           <h1 class="title">
-            Home Page
+            Drug companies from API
           </h1>
           <h2 class="subtitle">
             {{ msg }}
@@ -12,51 +12,53 @@
         </div>
       </div>
     </div>
+
     <div class="additional-bar has-shadow">
       <div class="container">
         <div class="content has-text-centered">
-          <!-- write content here -->
-        </div>
-      </div>
-    </div>
 
-    <div class="section">
-      <div class="container">
-        <div class="content">
+          <div class="section">
+            <div class="container">
+              <div class="content">
 
-          <div class="card" v-for="c in cards">
-            <div class="card-image">
-              <figure class="image is-4by3">
-                <img v-bind:src="c.image" alt="Placeholder image">
-              </figure>
-            </div>
-            <div class="card-content">
-              <div class="media">
-                <div class="media-left">
-                  <figure class="image is-48x48">
-                    <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                  </figure>
+                <div class="card" v-for="c in cards">
+                  <div class="card-image">
+                    <figure class="image is-4by3">
+                      <img v-bind:src="upscale(c.image)"
+                           alt="Placeholder image">
+                    </figure>
+                  </div>
+                  <div class="card-content">
+                    <div class="media">
+                      <div class="media-left">
+                        <figure class="image is-48x48">
+                          <img v-bind:src="c.image"
+                               alt="Placeholder image">
+                        </figure>
+                      </div>
+                      <div class="media-content">
+                        <p class="title is-4">{{ c.ceo }}</p>
+                        <p class="subtitle is-6">{{ c.email }}</p>
+                      </div>
+                    </div>
+
+                    <div class="content">
+                      <p>{{ c.slogan }}</p>
+                      <p>{{ c.drug }}</p>
+                    </div>
+                  </div>
                 </div>
-                <div class="media-content">
-                  <p class="title is-4">{{ c.ceo }}</p>
-                  <p class="subtitle is-6">{{ c.email }}</p>
-                </div>
+
               </div>
+            </div>
+          </div>
+  </section>
 
-    <div class="content">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-      <a href="#">#css</a> <a href="#">#responsive</a>
-      <br>
-      <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-    </div>
-  </div>
-</div>
 
         </div>
       </div>
     </div>
-  </section>
+
 </template>
 
 <script>
@@ -64,7 +66,7 @@ export default {
   name: 'Home',
   data () {
     return {
-      msg: 'Vue.js starter with full-featured Webpack and Buefy',
+      msg: 'Let us query our other docker container',
       info: null,
       cards: []
     }
@@ -72,8 +74,12 @@ export default {
   mounted () {
     this.axios
         .get('http://localhost:8000')
-        // TODO: replace all 50x50 to something large when outputting a model
         .then(response => (this.cards = response.data))
+  },
+  methods: {
+    upscale: function (image) {
+      return image.replace(new RegExp('50', 'g'), '250')
+    }
   }
 }
 </script>

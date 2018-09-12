@@ -36,12 +36,8 @@ services:
 
   client:
     build: client
-    # env_file:
-    #   - .env
     ports:
       - "8080:80"
-    # volumes:
-    #   - ./client:/app
     networks:
       - web_nw
     depends_on:

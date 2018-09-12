@@ -1,5 +1,7 @@
 <template>
   <section class="home">
+
+    <!-- Header with useless info -->
     <div class="hero is-primary is-medium">
       <div class="hero-body">
         <div class="container has-text-centered">
@@ -13,51 +15,50 @@
       </div>
     </div>
 
+    <!-- Main container -->
     <div class="additional-bar has-shadow">
       <div class="container">
         <div class="content has-text-centered">
 
-          <div class="section">
-            <div class="container">
-              <div class="content">
+          <!-- Cards for items from API -->
+          <div class="card" v-for="c in cards">
 
-                <div class="card" v-for="c in cards">
-                  <div class="card-image">
-                    <figure class="image is-4by3">
-                      <img v-bind:src="upscale(c.image)"
-                           alt="Placeholder image">
-                    </figure>
-                  </div>
-                  <div class="card-content">
-                    <div class="media">
-                      <div class="media-left">
-                        <figure class="image is-48x48">
-                          <img v-bind:src="c.image"
-                               alt="Placeholder image">
-                        </figure>
-                      </div>
-                      <div class="media-content">
-                        <p class="title is-4">{{ c.ceo }}</p>
-                        <p class="subtitle is-6">{{ c.email }}</p>
-                      </div>
-                    </div>
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img v-bind:src="upscale(c.image)"
+                alt="Placeholder image">
+              </figure>
+            </div>
 
-                    <div class="content">
-                      <p>{{ c.slogan }}</p>
-                      <p>{{ c.drug }}</p>
-                    </div>
-                  </div>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-left">
+                  <figure class="image is-48x48">
+                    <img v-bind:src="c.image"
+                    alt="Placeholder image">
+                  </figure>
+                </div>
+
+                <div class="media-content">
+                  <p class="title is-4">{{ c.ceo }}</p>
+                  <p class="subtitle is-6">{{ c.email }}</p>
                 </div>
 
               </div>
+
+              <div class="content">
+                <p>{{ c.slogan }}</p>
+                <p>{{ c.drug }}</p>
+              </div>
+
             </div>
           </div>
-  </section>
-
 
         </div>
       </div>
     </div>
+
+  </section>
 
 </template>
 
@@ -67,7 +68,6 @@ export default {
   data () {
     return {
       msg: 'Let us query our other docker container',
-      info: null,
       cards: []
     }
   },
@@ -101,4 +101,3 @@ export default {
   cursor: pointer;
 }
 </style>
-

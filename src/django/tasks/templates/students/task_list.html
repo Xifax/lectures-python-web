@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <section class="section">
+            {% for task in user.student.tasks.all %}
+                <p>{{ task }}</p>
+            {% endfor %}
+        </section>
+    </div>
+{% endblock %}

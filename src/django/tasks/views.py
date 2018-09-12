@@ -1,9 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import generic
+from django.core.exceptions import PermissionDenied
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
-from .models import Answer
+from .models import Answer, Task
 
 
 def landing(request):
@@ -28,3 +29,17 @@ class AnswerList(generic.ListView):
 class AnswerDetails(generic.DetailView):
     model = Answer
     template_name = 'teachers/answer.html'
+
+
+@login_required
+def my_tasks(request):
+    if not hasattr(request.user, 'student'):
+        raise PermissionDenied
+    return render(request, 'students/task_list.html')
+
+
+def view_task(request, pk):
+    task = get_object_or_404(Task, pk=pk)
+    return render(request, 'students/task.html', {
+        'task': task
+    })

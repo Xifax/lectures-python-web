@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Common(models.Model):
@@ -8,9 +9,12 @@ class Common(models.Model):
         abstract = True
         ordering = ['name']
 
+    def __str__(self):
+        return self.name
+
 
 class Task(Common):
-    description = models.TextField()
+    description = models.TextField(verbose_name='Описание')
     done = models.BooleanField(default=False)
 
     topic = models.ForeignKey(
@@ -32,8 +36,14 @@ class Task(Common):
         return self
 
     def __str__(self):
-        done = '[x]' if self.done else '[]'
-        return f'{done} {self.name} {self.topic} {self.student}'
+        done = '[x]' if self.done else '[ ]'
+        topic = self.topic if self.topic else 'без темы'
+        student = self.topic if self.topic else 'никто не назначен'
+        return f'{done} {self.name}: {topic}, {student}'
+
+    class Meta:
+        verbose_name = 'Задача'
+        verbose_name_plural = 'Задачи'
 
 
 class Answer(models.Model):

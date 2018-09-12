@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "base.html" %}
 
 {% block content %}
 
@@ -47,6 +47,14 @@
                             </ul>
 
                         </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="buttons is-centered">
+                        <a href="{% url 'auth_login' %}" class="button">Войти</a>
+                        <a href="{% url 'registration_register' %}" class="button">Регистрация</a>
+                        <a href="{% url 'admin:index' %}" class="button">В админку</a>
                     </div>
                 </div>
 

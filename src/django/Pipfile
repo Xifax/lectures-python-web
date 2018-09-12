@@ -11,6 +11,9 @@ pytest-watch = "*"
 pytest-testmon = "*"
 pytest-django = "*"
 gunicorn = "*"
+django-registration-redux = "*"
+django-debug-toolbar = "*"
+tqdm = "*"
 
 [dev-packages]
 

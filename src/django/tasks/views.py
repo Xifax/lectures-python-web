@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.views import generic
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 from .models import Answer
 
@@ -8,6 +10,12 @@ def landing(request):
     return render(request, 'landing.html')
 
 
+@login_required
+def profile(request):
+    return render(request, 'profile.html')
+
+
+@method_decorator(login_required, name='dispatch')
 class AnswerList(generic.ListView):
     model = Answer
     template_name = 'teachers/answer_list.html'

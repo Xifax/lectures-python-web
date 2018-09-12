@@ -5,7 +5,7 @@ from .models import Task, Topic, Student, Group, Status, Answer
 
 class TaskTest(TestCase):
     def setUp(self):
-        self.student = Student.objects.create(name='Jane Doe')
+        self.student = Student.objects.create(username='Jane Doe')
         self.topic = Topic.objects.create(name='Etc')
         self.task = Task.objects.create(
             name='Do something',
@@ -19,7 +19,7 @@ class TaskTest(TestCase):
 
     def test_can_assign_and_complete_task(self):
         self.assertFalse(self.task.done)
-        self.assertTrue(self.task.student.name == 'Jane Doe')
+        self.assertTrue(self.task.student.username == 'Jane Doe')
         self.task.complete()
         self.assertTrue(self.task.done)
 
@@ -30,7 +30,7 @@ class TaskTest(TestCase):
     def test_simple_joins(self):
         self.assertTrue(
             self.task in Task.objects.filter(
-                student__name='Jane Doe'))
+                student__username='Jane Doe'))
         self.assertTrue(
             self.student in Student.objects.filter(
                 tasks__name__in=['Do something']))
@@ -38,7 +38,7 @@ class TaskTest(TestCase):
 
 class GroupTest(TestCase):
     def setUp(self):
-        self.student = Student.objects.create(name='Jane Doe')
+        self.student = Student.objects.create(username='Jane Doe')
         self.group = Group.objects.create(name='Everyone get in here')
         self.leader = Status.objects.create(
             leader=True, group=self.group, student=self.student)
@@ -56,7 +56,7 @@ class GroupTest(TestCase):
 
 class AnswerTest(TestCase):
     def setUp(self):
-        self.student = Student.objects.create(name='Jane Doe')
+        self.student = Student.objects.create(username='Jane Doe')
         self.task = Task.objects.create(
             name='How much is the fish',
             student=self.student)
@@ -68,3 +68,4 @@ class AnswerTest(TestCase):
 
         self.assertTrue(answer in self.student.answers.all())
         self.assertTrue(answer in self.task.answers.all())
+        self.assertTrue(answer.student == self.student)

@@ -25,6 +25,7 @@ class Task(Common):
         blank=True)
     student = models.ForeignKey(
         'Student',
+        # parent_link=True,
         on_delete=models.CASCADE,
         related_name='tasks',
         null=True,
@@ -77,11 +78,15 @@ class Topic(Common):
     pass
 
 
-class Student(Common):
+class Student(User):
+    user = models.OneToOneField(User,
+                                parent_link=True,
+                                on_delete=models.CASCADE)
     helpers = models.ManyToManyField('self', blank=True)
 
-    def __str__(self):
-        return self.name
+    class Meta:
+        verbose_name = 'Студент'
+        verbose_name_plural = 'Студенты'
 
 
 class Group(Common):

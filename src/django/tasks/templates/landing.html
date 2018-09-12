@@ -52,8 +52,10 @@
                     <hr>
 
                     <div class="buttons is-centered">
-                        <a href="{% url 'auth_login' %}" class="button">Войти</a>
-                        <a href="{% url 'registration_register' %}" class="button">Регистрация</a>
+                        {% if not user.is_authenticated %}
+                            <a href="{% url 'auth_login' %}" class="button">Войти</a>
+                            <a href="{% url 'registration_register' %}" class="button">Регистрация</a>
+                        {% endif %}
                         <a href="{% url 'admin:index' %}" class="button">В админку</a>
                     </div>
                 </div>

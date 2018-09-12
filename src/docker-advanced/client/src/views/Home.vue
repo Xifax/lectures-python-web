@@ -19,6 +19,7 @@
         </div>
       </div>
     </div>
+
     <div class="section">
       <div class="container">
         <div class="content">
@@ -70,11 +71,8 @@ export default {
   },
   mounted () {
     this.axios
-        .get('https://api.coindesk.com/v1/bpi/currentprice.json')
-        .then(response => (this.info = response))
-
-    this.axios
         .get('http://localhost:8000')
+        // TODO: replace all 50x50 to something large when outputting a model
         .then(response => (this.cards = response.data))
   }
 }

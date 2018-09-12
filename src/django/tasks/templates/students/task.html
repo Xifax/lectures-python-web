@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <section class="section">
+        <h1 class="title">{{ task.name }}</h1>
+        <h2 class="subtitle">{{ task.description }}</h2>
+
+        {% if answer %}
+        <hr>
+        Ответ:
+        <p>
+            {{ answer.text }}
+        </p>
+        <hr>
+        {% endif %}
+
+        <form action="{% url 'tasks:task-view' pk=task.pk %}" method="post">
+            {% csrf_token %}
+            <div class="field">
+                <div class="label">Текст ответа</div>
+                {{ form.text }}
+            </div>
+            <div class="control">
+                <input class="button is-primary" type="submit" value="Обновить">
+                <a href="{% url 'tasks:task-list' %}" class="button is-warning">Отмена</a>
+            </div>
+        </form>
+    </section>
+</div>
+{% endblock %}

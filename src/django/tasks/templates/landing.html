@@ -40,7 +40,7 @@
 
                             <ul>
                                 <li>создаём и назначаем задачи для выполнения</li>
-                                <li>подразделяем пользователей на студентов и учителей</li>
+                                <li>подразделяем пользователей на студентов и всех прочих</li>
                                 <li>разграничиваем доступ к различным страницам</li>
                                 <li>группируем студентов и задачи по определённым признакам</li>
                                 <li> добавим утилиты массовой обработки задач</li>
@@ -69,10 +69,14 @@
                             <span class="tag is-black is-medium is-rounded">
                                 <a href="{% url 'tasks:answer-list' %}"> Ответы </a>
                             </span>
+                            <span class="tag is-black is-medium is-rounded">
+                                <a href="{% url 'tasks:task-list' %}"> Задачи </a>
+                            </span>
                         </div>
                     </div>
                 </section>
 
             </div>
-
+        </section>
+    </div>
 {% endblock %}

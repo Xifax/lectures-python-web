@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <section class="hero is-light is-small is-bold">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title">
+                    Ответы
+                </h1>
+            </div>
+        </div>
+    </section>
+
+    <br>
+
+    <div class="container">
+
+        <div class="tile is-ancestor">
+            <div class="tile is-parent">
+
+                {% for answer in answer_list %}
+                    <div class="tile">
+                        <div class="tile is-child notification is-info is-10">
+                            <h1 class="title">
+                                {{ answer.task.name }}
+                            </h1>
+                            <i class="fas fa-question"></i>
+                            <p>{{ answer.task.description }}</p>
+                            <i class="fas fa-exclamation"></i>
+                            <p> {{ answer.text }}</p>
+
+                            <br>
+                            <a href="{% url 'tasks:answer-view' pk=answer.id %}"
+                               class="button is-light is-inverted is-outlined is-small">Информация</a>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

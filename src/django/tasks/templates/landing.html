@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    {# Hero title #}
+    <section class="hero is-primary is-small is-bold">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title">
+                    <i class="fab fa-python fa-3x"></i><br>
+                    Сделаем вид<br>
+                    что это полноценное приложение
+                </h1>
+                <h2 class="subtitle">
+                    и всё такое прочее
+                </h2>
+            </div>
+        </div>
+    </section>
+
+
+    {# Our simple content #}
+    <div class="container">
+        <section class="articles">
+            <div class="column is-8 is-offset-2">
+
+                {# What this app actually should do #}
+                <div class="card article">
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-content has-text-centered">
+                                <p class="title article-title">Набросаем несколько экранов</p>
+                                <div class="tags has-addons level-item">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content article-body">
+
+                            Что пытаемся сделать:
+
+                            <ul>
+                                <li>создаём и назначаем задачи для выполнения</li>
+                                <li>подразделяем пользователей на студентов и учителей</li>
+                                <li>разграничиваем доступ к различным страницам</li>
+                                <li>группируем студентов и задачи по определённым признакам</li>
+                                <li> добавим утилиты массовой обработки задач</li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+
+                {# Let's put our links here #}
+                <section class="hero is-info is-bold is-small promo-block">
+                    <div class="hero-body">
+                        <div class="container">
+                            <h1 class="title">
+                                <i class="fa fa-bell-o"></i> Страницы нашего приложения</h1>
+                            <span class="tag is-black is-medium is-rounded">
+                                <a href="{% url 'tasks:answer-list' %}"> Ответы </a>
+                            </span>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+{% endblock %}

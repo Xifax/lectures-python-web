@@ -13,21 +13,32 @@ class Task(Common):
     description = models.TextField()
     done = models.BooleanField(default=False)
 
-    topic = models.ForeignKey('Topic',
-            on_delete=models.CASCADE,
-            related_name='tasks')
+    topic = models.ForeignKey(
+        'Topic',
+        on_delete=models.CASCADE,
+        related_name='tasks',
+        null=True,
+        blank=True)
     student = models.ForeignKey(
-            'Student',
-            on_delete=models.CASCADE,
-            related_name='tasks')
+        'Student',
+        on_delete=models.CASCADE,
+        related_name='tasks',
+        null=True,
+        blank=True)
 
     def complete(self):
         self.done = True
         self.save()
         return self
 
+    def __str__(self):
+        done = '[x]' if self.done else '[]'
+        return f'{done} {self.name} {self.topic} {self.student}'
+
 
 class Answer(models.Model):
+    # this is actually not very good practice, better use Enum
+    # or model-utils
     GRADES = (
         (1, 'bad'),
         (2, 'good'),
@@ -39,12 +50,17 @@ class Answer(models.Model):
         null=True,
         blank=True)
 
-    student = models.ForeignKey('Student',
+    student = models.ForeignKey(
+        'Student',
         related_name='answers',
         on_delete=models.CASCADE)
-    task = models.ForeignKey(Task,
+    task = models.ForeignKey(
+        Task,
         related_name='answers',
         on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.task.name}: {self.text}'
 
 
 class Topic(Common):
@@ -53,6 +69,9 @@ class Topic(Common):
 
 class Student(Common):
     helpers = models.ManyToManyField('self', blank=True)
+
+    def __str__(self):
+        return self.name
 
 
 class Group(Common):

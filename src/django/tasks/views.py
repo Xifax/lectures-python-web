@@ -26,6 +26,11 @@ class AnswerList(generic.ListView):
     def get_queryset(self):
         return Answer.objects.all()
 
+    def dispatch(self, request, *args, **kwargs):
+        if hasattr(request.user, 'student'):
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)
+
 
 class AnswerDetails(generic.DetailView):
     model = Answer

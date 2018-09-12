@@ -25,10 +25,13 @@
                             <h1 class="title">
                                 {{ answer.task.name }}
                             </h1>
+
                             <i class="fas fa-question"></i>
                             <p>{{ answer.task.description }}</p>
                             <i class="fas fa-exclamation"></i>
                             <p> {{ answer.text }}</p>
+                            <i class="fas fa-graduation-cap"></i>
+                            <p> {{ answer.student }} </p>
 
                             <br>
                             <a href="{% url 'tasks:answer-view' pk=answer.id %}"

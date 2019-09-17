@@ -35,6 +35,6 @@ def test_may_quad(client):
     assert result.json['quad'] == pow(2, 4)
 
 def test_may_not_quad_negative(client):
-    # Yes, <int:argument> is only for positive integers
+    # NB: <int:argument> is only for positive integers
     result = client.get(url_for('quad', number=-1))
     assert result.status_code == 404

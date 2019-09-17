@@ -186,3 +186,6 @@ venv.bak/
 
 # Additional stuff
 .testmondata
+.idea
+.vscode
+out.csv

@@ -566,7 +566,7 @@ Note:
 
 ---
 
----?code=src/flask/templates/8-tests.py&lang=python&color=white&title=Flask. Tests
+---?code=src/flask/8-tests.py&lang=python&color=white&title=Flask. Tests
 @[5-16](Создаём приложение в отдельном методе)
 @[12-14](Маршрут для возведения в степень)
 @[18-20](Запускаем приложение)

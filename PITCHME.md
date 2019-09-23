@@ -2,7 +2,7 @@
 
 @fa[code-fork fa-3x git-color]
 
-Версионирование кода & @fa[git]
+Версионирование кода & @fa[git fa-2x]
 
 ---?image=img/0-vcs.png&size=auto 90%
 

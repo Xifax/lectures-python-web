@@ -46,9 +46,12 @@ Note:
 
 ---
 
-@fa[git fa-2x]
 
-![Git himself](img/linus.jpg&size=auto 90%)
+<!-- ![Git himself](img/linus.jpg&size=auto 90%) -->
+
+---?image=img/linus.jpg&size=auto 90%
+
+@fa[git fa-2x]
 
 ---
 

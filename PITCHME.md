@@ -1,20 +1,10 @@
-<!-- # VCS -->
+# VCS
 
-<!-- @fa[code-fork fa-3x git-color] -->
+@fa[code-fork fa-3x git-color]
 
-
----?color=linear-gradient(180deg, white 50%, #1F6ED4 50%)
-
-@snap[north fa-2x span-100]
-# @fa[code-fork git-color]
-@snapend
-
-@snap[south span-100 h2-white]
-# Версионирование кода & git
-@snapend
+Версионирование кода & git
 
 ---?image=img/0-vcs.png&size=auto 90%
-
 
 ---
 
@@ -40,7 +30,6 @@ Note:
 
 ## Версионирование кода
 
-![XKCD example](img/xkcd-commit-messages.png)
 
 Note:
 
@@ -57,9 +46,9 @@ Note:
 
 ---
 
-@fa[git fa-3x]
+@fa[git fa-2x]
 
-![Git himself](img/linus.jpg)
+![Git himself](img/linus.jpg&size=auto 90%)
 
 ---
 
@@ -67,6 +56,19 @@ Note:
 
 Сценарии и общепринятые варианты их разрешения через команды
 
+
+---
+
+## Коммиты и практики
+
+
+![XKCD example](img/xkcd-commit-messages.png)
+
+---
+
+## Branching models
+
+Git-flow, trunk-based, lightweight models
 
 ---
 

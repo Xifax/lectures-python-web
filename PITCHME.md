@@ -1,10 +1,21 @@
-# VCS
+<!-- # VCS
 
-@fa[code-fork fa-3x]
+@fa[code-fork fa-3x git-color]
 
-Версионирование кода & Git
+Версионирование кода & git -->
 
----?image=img/0-vcs.png&size=contain
+---?color=linear-gradient(180deg, white 33.33%, #1F6ED4 33.33%)
+
+@snap[north span-100]
+# @fa[code-fork git-color]
+@snapend
+
+@snap[south span-100 h1-white]
+# Версионирование кода & git
+@snapend
+
+---?image=img/0-vcs.png&size=auto 90%
+
 
 ---
 
@@ -43,7 +54,7 @@ Note:
 
 @box[text-blue fragment](/ˈgɪt/ noun: a foolish or worthless person)
 
-@box[text-orange fragment](GIT(1): the stupid content tracker)
+@box[git-color fragment](GIT(1): the stupid content tracker)
 
 ---
 

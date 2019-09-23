@@ -22,3 +22,7 @@ h1, h2, h3, p, ul {
 .gray {
   color: lightgray;
 }
+
+.git-color {
+  color: #f14e32;
+}

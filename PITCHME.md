@@ -1,16 +1,15 @@
-<!-- # VCS
+<!-- # VCS -->
 
-@fa[code-fork fa-3x git-color]
+<!-- @fa[code-fork fa-3x git-color] -->
 
-Версионирование кода & git -->
 
----?color=linear-gradient(180deg, white 33.33%, #1F6ED4 33.33%)
+---?color=linear-gradient(180deg, white 50%, #1F6ED4 50%)
 
-@snap[north span-100]
+@snap[north fa-3x span-100]
 # @fa[code-fork git-color]
 @snapend
 
-@snap[south span-100 h1-white]
+@snap[south span-100 h3-white]
 # Версионирование кода & git
 @snapend
 
@@ -60,7 +59,7 @@ Note:
 
 @fa[git fa-3x]
 
-![Git himself](img/linux.jpg)
+![Git himself](img/linus.jpg)
 
 ---
 

@@ -37,21 +37,16 @@ Note:
 
 ---
 
-## Git
+## @fa[git fa-2x]
 
 
 @box[text-blue fragment](/ˈgɪt/ noun: a foolish or worthless person)
 
 @box[git-color fragment](GIT(1): the stupid content tracker)
 
----
-
-
-<!-- ![Git himself](img/linus.jpg&size=auto 90%) -->
+<!-- Linus -->
 
 ---?image=img/linus.jpg&size=auto 90%
-
-@fa[git fa-2x]
 
 ---
 

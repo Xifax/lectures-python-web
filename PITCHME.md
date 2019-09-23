@@ -4,7 +4,7 @@
 
 Версионирование кода & Git
 
----?image=img/0-vcs.jpg&size=contain
+---?image=img/0-vcs.png&size=contain
 
 ---
 
@@ -41,11 +41,15 @@ Note:
 ## Git
 
 
-@fa[git fa-3x]
-
 @box[text-blue fragment](/ˈgɪt/ noun: a foolish or worthless person)
 
 @box[text-orange fragment](GIT(1): the stupid content tracker)
+
+---
+
+@fa[git fa-3x]
+
+![Git himself](img/linux.jpg)
 
 ---
 

@@ -3,8 +3,5 @@ root = true
 [*]
 indent_style = space
 
-[*.py]
-indent_size = 4
-
 [*.{md,js,css,yml,yaml,tpl}]
 indent_size = 2

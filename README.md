@@ -12,6 +12,10 @@ https://gitpitch.com/xifax/lectures-python-web/second-part
 
 Contains second part.
 
+https://gitpitch.com/xifax/lectures-python-web/git-lecture
+
+Contains git lecture.
+
 ---
 
 Сами слайды и тексты находятся [тут](PITCHME.md),
@@ -21,5 +25,4 @@ Contains second part.
 Примеры кода и медиа-ресурсы пока что не разделены между ветками.
 
 Дополнительная информация содержится в подпапках, в соответствующих readme файлах.
-Задачи на дом описаны на слайдах, а также в [данной папке](homework).
 Примеры кода находятся в [src](src).

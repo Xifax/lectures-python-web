@@ -5,11 +5,11 @@
 
 ---?color=linear-gradient(180deg, white 50%, #1F6ED4 50%)
 
-@snap[north fa-3x span-100]
+@snap[north fa-2x span-100]
 # @fa[code-fork git-color]
 @snapend
 
-@snap[south span-100 h3-white]
+@snap[south span-100 h2-white]
 # Версионирование кода & git
 @snapend
 

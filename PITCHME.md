@@ -181,7 +181,7 @@ $ tail .git/config
 
 @box[fragment](**merge** ~ попробует скомбинировать последние коммиты/SHA двух веток в один)
 @box[fragment](**fast-forward merge** ~ если история коммитов без конфликтов, новые коммиты будут включены в неё а HEAD "перемотается*)
-@box[fragment](**merge commit** ~ при разрешении конфликта создаётся новый коммит)
+@box[fragment](**merge-commit** ~ при разрешении конфликта создаётся новый коммит)
 
 ---
 
@@ -229,8 +229,8 @@ Note:
 @ul
 - `status`
 - `pull`
-- меняем/добавляем файлы
-- `add` .
+- `меняем/добавляем файлы`
+- `add`
 - `commit -m "Ясделаль"`
 - `push target-remote new-branch`
 @ulend
@@ -369,11 +369,9 @@ The result will look like you did all of your changes after the other branch.
 
 ```bash
 # Создадим новый коммит, откатывающий предыдущий
-
 git revert [SHA]
 
 # Обновим репозиторий для всех работающих с ним
-
 git push [remote]
 
 # Уберём merge commit
@@ -536,7 +534,7 @@ Resolve: #777
 - docs: документация
 @ulend
 
-При включении в тексте `BREAKING CHANGE` подразумевается MAJOR версионирование.
+<!-- При включении в тексте `BREAKING CHANGE` подразумевается MAJOR версионирование. -->
 
 Note:
 
@@ -565,7 +563,7 @@ https://www.conventionalcommits.org
 
 fix(configuration): allow empty configuration fields
 
-see the issue for configuration example
+BREAKING CHANGE: it actually works!
 
 fixes issue #777
 ```
@@ -622,7 +620,7 @@ git merge squashed-feature
 
 @ulend
 
----?image=img/git-flow.png&size=auto 90%
+---?image=img/git-flow.png&size=auto 70%
 
 ---
 
@@ -637,7 +635,7 @@ https://trunkbaseddevelopment.com/
 - предполагается автоматизация предварительного тестирования новых изменений
 @ulend
 
----?image=img/git-flow.png&size=auto 90%
+---?image=img/trunk-based.png&size=auto 90%
 
 ---
 

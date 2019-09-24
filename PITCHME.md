@@ -635,7 +635,7 @@ https://trunkbaseddevelopment.com/
 - предполагается автоматизация предварительного тестирования новых изменений
 @ulend
 
----?image=img/trunk-based.png&size=auto 90%
+---?image=img/trunk-based.png&size=auto 60%
 
 ---
 

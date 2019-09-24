@@ -19,7 +19,7 @@
 - Branching models 
 - git hooks, alias, configs
 - git UI & tools
-- прочее: теги, gotchas, etc
+- прочее: tags, submodules, etc
 
 @ulend
 
@@ -132,21 +132,17 @@ Distributed VCS: мёрдж и коммит разделены
 
 ### Commit
 
-@ul
-При каждом коммите формируется *SHA* файлов и директорий, определяющий *состояние* репозитория
+@box[fragment](При каждом коммите формируется *SHA* файлов и директорий, определяющий *состояние* репозитория)
 
-*Хэш* является *идентификатором* коммита для множества операций
+@box[fragment](*Хэш* является *идентификатором* коммита для множества операций)
 
-*HEAD* указывает на какой SHA мы смотрим в данный момент
-@ulend
+@box[fragment](*HEAD* указывает на какой SHA мы смотрим в данный момент)
 
 ---
 
-@ul
-*Branch* можно считать *именем* совокупности SHA
+@box[fragment](*Branch* можно считать *именем* совокупности SHA)
 
-*Detached HEAD* ~ мы смотрим на SHA *не связанный с какой-либо веткой*
-@ulend
+@box[fragment](*Detached HEAD* ~ мы смотрим на SHA *не связанный с какой-либо веткой*)
 
 ---
 
@@ -176,31 +172,30 @@ Note:
 
 Локальные и удалённые
 
-@ul
-
-- tracking
-- upstream
-
-@ulend
-
-```ini
+```bash
 $ tail .git/config
 [branch "master"]
 	remote = origin
 	merge = refs/heads/master
 ```
 
+`master` tracks the upstream `origin/master`
+
 ---
 
 ### Merge/rebase
+
+@box[fragment](**merge** ~ попробует скомбинировать последние коммиты/SHA двух веток в один)
+@box[fragment](**fast-forward merge** ~ если история коммитов без конфликтов, новые коммиты будут включены в неё а HEAD "перемотается*)
+@box[fragment](**merge commit** ~ при разрешении конфликта создаётся новый коммит)
+@box[fragment](**rebase** ~ в случае конфликта применит изменения *поверх* целевой ветки, без дополнительного коммита)
+@box[fragment](**cherry-pick** ~ применяем конкретный коммит по SHA на текущую ветку)
 
 ---
 
 ### Remotes
 
-Обещанная распределённость
-
-> имя url:refspec (операция)
+> имя url:refspec (fetch/push)
 
 @ul
 - **clone** ~ сделать локальную копию и пометить как origin
@@ -240,7 +235,7 @@ Note:
 
 GUI заменяет консоль, но не заменяет консоль
 
----?image=img/push-force.png&size=contain
+---?image=img/push-force.png&size=auto 90%
 
 ---
 

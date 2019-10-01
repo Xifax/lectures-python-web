@@ -13,7 +13,7 @@ class Command(BaseCommand):
         parser.add_argument('output', nargs=None, type=str)
 
     def handle(self, *args, **options):
-        with open(options['output'], 'w') as out:
+        with open(options['output'], 'w', encoding='utf-8') as out:
             writer = csv.writer(out)
             for task in tqdm(Task.objects.all()):
                 writer.writerow([

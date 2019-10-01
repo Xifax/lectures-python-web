@@ -582,7 +582,7 @@ Note:
 
 Автоматизация развёртывания контейнеризированных приложений
 
----?image=img/8-k8s.jpeg&size=70%
+---?image=img/8-k8s.jpeg&size=60%
 
 ---
 
@@ -590,7 +590,7 @@ Note:
 ## Ссылки
 
 Данная презентация
-https://gitpitch.com/xifax/lectures-python-web/master
+https://gitpitch.com/xifax/lectures-python-web/django-webserver
 
 Репозиторий презентации
 https://github.com/xifax/lectures-python-web
